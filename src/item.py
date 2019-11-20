@@ -13,5 +13,5 @@ class Item:
         return output
 
 # Test Item Class
-testItemClass = Item('testItem', 'testItem description')
-print(testItemClass)
+# testItemClass = Item('testItem', 'testItem description')
+# print(testItemClass)

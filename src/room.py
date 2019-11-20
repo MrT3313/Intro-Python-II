@@ -20,5 +20,5 @@ class Room:
         return output
 
 # Test Room Class
-testRoomClass = Room('testRoom', 'testRoom description')
-print(testRoomClass)
+# testRoomClass = Room('testRoom', 'testRoom description')
+# print(testRoomClass)

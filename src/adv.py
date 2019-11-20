@@ -42,8 +42,8 @@ room['treasure'].s_to = room['narrow']
 movement = ['n','s','e','w',]
 
 # Make a new player object that is currently in the 'outside' room.
-newPlayer = Player('Reed')
-print(newPlayer)
+newPlayer = Player('Reed', room['outside'])
+# print(newPlayer)
 
 # Write a loop that:
 #
@@ -61,10 +61,14 @@ print(newPlayer)
 ## --- REPL --- ##
 
 # WELCOME
-welcomeMessage = f'Welcome to the game!'
+welcomeMessage = f'Welcome to the game {newPlayer.name}!\n' 
+                
 print(welcomeMessage)
 
 while True:
+    # Check player status
+    print(newPlayer)
+
     # USER PROMPT
     playerAction = input(   'Please choose a direction in which you would like to go: \n'
                             'Your current movement options are: North = "n", South = "s", East = "e", West = "w". \n'
@@ -79,3 +83,5 @@ while True:
             'Please choose a valid direction \n'
             'Valid Options: "n", "s", "e", "w", or "q"'
         )
+    
+    
