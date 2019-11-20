@@ -46,7 +46,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   * The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
     which point to the room in that respective direction.
 
-* Put the Player class in `player.py`.
+* [x] Put the Player class in `player.py`.
   * Players should have a `name` and `current_room` attributes
 
 
