@@ -1,7 +1,8 @@
+## IMPORTS
 from room import Room
+from player import Player
 
 # Declare all the rooms
-
 room = {
     'outside':  Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
@@ -37,7 +38,12 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
+# DEFINE DIRECTIONAL MOVEMENTS
+movement = ['n','s','e','w',]
+
 # Make a new player object that is currently in the 'outside' room.
+newPlayer = Player('Reed')
+print(newPlayer)
 
 # Write a loop that:
 #
@@ -54,5 +60,22 @@ room['treasure'].s_to = room['narrow']
 # --- *** --- #
 ## --- REPL --- ##
 
+# WELCOME
+welcomeMessage = f'Welcome to the game!'
+print(welcomeMessage)
 
-
+while True:
+    # USER PROMPT
+    playerAction = input(   'Please choose a direction in which you would like to go: \n'
+                            'Your current movement options are: North = "n", South = "s", East = "e", West = "w". \n'
+                            'Quit: "q"')
+    # USER INPUT CONDITIONAL
+    if playerAction == 'q':
+        exit()
+    elif playerAction in movement:
+        newPlayer.move_player(playerAction)
+    else:
+        print(f'\n'
+            'Please choose a valid direction \n'
+            'Valid Options: "n", "s", "e", "w", or "q"'
+        )

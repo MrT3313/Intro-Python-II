@@ -20,5 +20,5 @@ class Room:
         return output
 
 # Test Room Class
-testRoomClass = Player('testRoom', 'testRoom description')
+testRoomClass = Room('testRoom', 'testRoom description')
 print(testRoomClass)

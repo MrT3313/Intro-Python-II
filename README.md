@@ -39,7 +39,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   * Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
   * The parser should print an error if the player tries to move where there is no room.
 
-* Put the Room class in `room.py` based on what you see in `adv.py`.
+* [x] Put the Room class in `room.py` based on what you see in `adv.py`.
 
   * The room should have `name` and `description` attributes.
 
@@ -50,7 +50,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   * Players should have a `name` and `current_room` attributes
 
 
-* Create a file called `item.py` and add an `Item` class in there.
+* [x] Create a file called `item.py` and add an `Item` class in there.
 
   * The item should have `name` and `description` attributes.
 

@@ -2,9 +2,12 @@
 # currently.
 
 class Player:
-    def __init__(self, name, curr_room):
+    def __init__(self, name, curr_room='outside'):
         self.name = name
         self.curr_room = curr_room
+
+    def move_player(self, command):
+        print(f'MOVE THIS PLAYER: {command}')
     
     def __str__(self):
         output = ''
@@ -15,5 +18,5 @@ class Player:
         return output
 
 # Test Player Class
-testPlayerClass = Player('testPlayer', 'outside')
+testPlayerClass = Player('testPlayer')
 print(testPlayerClass)
