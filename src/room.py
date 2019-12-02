@@ -5,6 +5,8 @@ class Room:
     def __init__(self, name, desc):
         self.name = name
         self.desc = desc
+        self.items = []
+
         self.n_to = None 
         self.s_to = None 
         self.e_to = None 
@@ -15,7 +17,10 @@ class Room:
         output += f'ROOM CLASS \n'
         output += f'Name: {self.name} \n'
         output += f'Description: {self.desc} \n'
-        output += f'Methods: {self.n_to, self.s_to, self.e_to, self.w_to}'
+        output += f'Methods: {self.n_to, self.s_to, self.e_to, self.w_to} \n\n'
+        
+        for i in self.items:
+            output += f'Item in {self.name}: {i} \n'
         
         return output
 
