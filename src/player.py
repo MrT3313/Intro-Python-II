@@ -15,6 +15,28 @@ class Player:
             self.curr_room = getattr(self.curr_room, f'{command}_to')
         else:
             print(f'!! -- Direction not available from your current room -- !!')
+    
+    def add_item(self, item):
+        self.backpack.append(item)
+
+        return_string = f''
+        return_string += f'{item} was added to your backpack'
+
+        return return_string
+
+    def drop_item(self, item):
+        if item in self.backpack: 
+            self.backpack.remove(item)
+
+            return_string = f''
+            return_string += f'{item} was removed from your backpack'
+
+            return return_string
+        else:
+            return_string = f''
+            return_string += f'{item} is not in your backpack'
+            
+
 
     def __str__(self):
         output = '*\n'
