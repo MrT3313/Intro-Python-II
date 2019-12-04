@@ -1,7 +1,10 @@
+## IMPORTS
 from room import Room
+from player import Player
+from item import Money
+from item import Food
 
 # Declare all the rooms
-
 room = {
     'outside':  Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
@@ -21,9 +24,7 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
-
 # Link rooms together
-
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
@@ -33,11 +34,38 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+# Create Items
+gold_small = Money('Money - S', 'Small Pile of Gold', 15, 'Gold Coins')
+gold_medium = Money('Money - M', 'Medium Pile of Gold', 50, 'Gold Coins')
+gold_large = Money('Money - L', 'Large Pile of Gold', 100, 'Gold Coins')
+print('!!! XXX !!!',gold_small)
+print('!!! XXX !!!',gold_medium)
+print('!!! XXX !!!',gold_large)
+
+carrot = Food('Carrot', 'Crunchy and good for you', '14 pounds', 3)
+taco_softShell = Food('Taco', 'FREE TACO OMG!!!!!!!!...oh its shoft shell...', '3 soft shell', 1000)
+taco_hardShell = Food('Taco', 'FREE TACO OMG!!!!!!!!...AND ITS A REAL TACO SHELL', '3 hard shell', 5000)
+print('!!! XXX !!!',carrot)
+print('!!! XXX !!!',taco_softShell)
+print('!!! XXX !!!',taco_hardShell)
+
+# Add Items to Rooms
+room['outside'].items = [gold_small, carrot]
+room['foyer'].items = [carrot]
+room['overlook'].items = [gold_large, taco_hardShell]
+room['narrow'].items = [taco_softShell]
+room['treasure'].items = [carrot]
+
 #
 # Main
 #
 
+# DEFINE DIRECTIONAL MOVEMENTS
+movement = ['n','s','e','w',]
+
 # Make a new player object that is currently in the 'outside' room.
+newPlayer = Player('Reed', room['outside'])
+# print(newPlayer)
 
 # Write a loop that:
 #
@@ -49,3 +77,31 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+# --- *** --- #
+# --- *** --- #
+## --- REPL --- ##
+
+# WELCOME
+welcomeMessage = f'Welcome to the game {newPlayer.name}!\n' 
+                
+print(welcomeMessage)
+
+while True:
+    # Check player status
+    print(newPlayer)
+
+    # USER PROMPT
+    playerAction = input(   'Please choose a direction in which you would like to go: \n'
+                            'Your current movement options are: North = "n", South = "s", East = "e", West = "w". \n'
+                            'Quit: "q"')
+    # USER INPUT CONDITIONAL
+    if playerAction == 'q':
+        exit()
+    elif playerAction in movement:
+        newPlayer.move_player(playerAction)
+    else:
+        print(f'\n'
+            'Please choose a valid direction \n'
+            'Valid Options: "n", "s", "e", "w", or "q"'
+        )
